@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates t-name="show_field">
+   <t t-extend="ListView.buttons">
+       <t t-jquery=".oe_list_add" t-operation="before" >
+        <div class="input-group margin-bottom-sm choose_field_show" t-att-color="widget.data.attrs.color" style="float: left; margin-right: 10px">
+            <t t-if="widget.data.attrs.color!='check-base'">
+                <a type="button" class="btn btn-default fields_setting" title="Settings" style="
+                    border-radius: 0px 5px 5px 0px;
+                    margin-left: -1px; font-size: 13px">
+                    <i class="fa fa-cog" title="Settings" aria-hidden="true"></i>
+                    <span class="sr-only">Settings</span>
+                </a>
+                <a type="button" title="Choose fields to show!" class="btn btn-default toggle_select_field" style="float: left;border-radius: 5px 0px 0px 5px; font-size: 13px">
+                    Columns
+                    <i class="fa fa-chevron-down" title="Choose fields to show!."  style="margin-left: 4px" aria-hidden="true"></i>
+                </a>
+            </t>
+            <t t-if="widget.data.attrs.color=='check-base'">
+                <button type="button" class="btn btn-default fields_setting" title="Settings" style="
+                    border-radius: 0px 5px 5px 0px;
+                    margin-left: -2px; margin-top: -5px">
+                    <i class="fa fa-cog" title="Settings" aria-hidden="true"></i>
+                    <span class="sr-only">Settings</span>
+                </button>
+                <button type="button" title="Choose fields to show!" class="btn btn-default toggle_select_field" style="float: left;border-radius: 5px 0px 0px 5px;">
+                    Columns
+                    <i class="fa fa-chevron-down" title="Choose fields to show!."  style="margin-left: 4px" aria-hidden="true"></i>
+                </button>
+            </t>
+            <div class="text_suggestion">
+                <div class="suggestion_action">
+                    <a class="btn btn-default update_fields_show" action="update" title="Update">
+                        <i class="fa fa-refresh fa-spin fa-1x fa-fw" title="Update" aria-hidden="true"></i>
+                        <span class="sr-only">Update</span>
+                    </a>
+                </div>
+                <div class="suggestion">
+                    <ul>
+                        <t t-foreach="widget.data.suggestion" t-as="suggest">
+                            <li>
+                                <div class="checkbox check-primary" t-att-color="widget.data.attrs.color" t-att-shape="widget.data.attrs.shape">
+                                    <i class="fa fa-cog i_setting_field" title="Settings (toggle to Show/Hide)" aria-hidden="true" t-att-setting="suggest.value" style="line-height: 100%;vertical-align: middle;margin-right: 5px;opacity: 0.5;"></i>
+                                    <div class="setting_field">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input class="sequence" title="Sequence" t-att-for="suggest.value" t-att-value="suggest.sequence" style="margin-right: 2px;" />
+                                                        <input class="string_field" title="String Of Field" t-att-for="suggest.value" t-att-value="suggest.string" style="float: left;margin-right: 2px;" />
+                                                        <a action="update" class="btn btn-default update_fields_show" title="Update" style="padding: 1px 5px;">
+                                                            <i aria-hidden="true"  class="fa fa-refresh fa-spin fa-1x fa-fw update_setting_field" title="Update"></i>
+                                                            <span class="sr-only">Update</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <input type="checkbox" t-att-value="suggest.value" t-att-string_field="suggest.string" t-att-sequence="suggest.sequence"
+                                           t-att-checked="suggest.checked" t-att-id="suggest.value" />
+                                    <label t-att-for="suggest.value">
+                                        <!--<input t-att-for="suggest.value" title="Sequence" class="sequence" t-att-value="suggest.sequence"></input>-->
+                                        <!--<input t-att-for="suggest.value" title="String Of Field" class="string_field" t-att-value="suggest.string"></input>-->
+                                        <t t-esc="suggest.string" />
+                                    </label>
+                                </div>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </t>
+</t>
+</templates>

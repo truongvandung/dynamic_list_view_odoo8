@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="group_show_fields" model="res.groups">
+            <field name="name">Show Fields</field>
+        </record>
+    </data>
+
+    <!--<data noupdate="1">-->
+        <!--<record id="group_show_field_rule" model="ir.rule">-->
+            <!--<field name="name">Show Fields</field>-->
+            <!--<field name="model_id" ref="model_show_fields"/>-->
+            <!--<field name="global" eval="True"/>-->
+            <!--<field name="domain_force">[('user_id.id','>',0)]</field>-->
+        <!--</record>-->
+    <!--</data>-->
+</openerp>
